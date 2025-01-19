@@ -1,0 +1,138 @@
+{
+  "0EFA7062-CD16-404B-ADEF-20F78E5EFCA7" : {
+    "objectMetadataList" : [
+      [
+        "0EFA7062-CD16-404B-ADEF-20F78E5EFCA7",
+        "Root",
+        "Transform",
+        "boardTest"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "0EFA7062-CD16-404B-ADEF-20F78E5EFCA7",
+        "Root",
+        "AnchorBoard"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "0EFA7062-CD16-404B-ADEF-20F78E5EFCA7",
+        "Root",
+        "AnchorBoard",
+        "treeA"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "0EFA7062-CD16-404B-ADEF-20F78E5EFCA7",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
+  "2985FAA3-27D3-49A4-8E0F-93EF77AE9C74" : {
+    "objectMetadataList" : [
+      [
+        "2985FAA3-27D3-49A4-8E0F-93EF77AE9C74",
+        "Root",
+        "Timeline",
+        "Track"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "2985FAA3-27D3-49A4-8E0F-93EF77AE9C74",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "2985FAA3-27D3-49A4-8E0F-93EF77AE9C74",
+        "Root",
+        "Cow",
+        "Materials"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "2985FAA3-27D3-49A4-8E0F-93EF77AE9C74",
+        "Root",
+        "Cow"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
+  "2C92D7A3-69C0-4CDF-9171-D08B5EFA4D70" : {
+    "objectMetadataList" : [
+      [
+        "2C92D7A3-69C0-4CDF-9171-D08B5EFA4D70",
+        "Root",
+        "treeA"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "2C92D7A3-69C0-4CDF-9171-D08B5EFA4D70",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
+  "93185EB3-DADB-43E7-80CA-D1B95CF2C611" : {
+    "objectMetadataList" : [
+      [
+        "93185EB3-DADB-43E7-80CA-D1B95CF2C611",
+        "Root",
+        "board"
+      ],
+      {
+        "disallowsFraming" : false,
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "93185EB3-DADB-43E7-80CA-D1B95CF2C611",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "93185EB3-DADB-43E7-80CA-D1B95CF2C611",
+        "Root",
+        "AnchorBoard",
+        "board",
+        "_materials"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  }
+}

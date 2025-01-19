@@ -1,0 +1,16 @@
+{
+  "images" : [
+    {
+      "filename" : "tree.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  },
+  "properties" : {
+    "unit" : "centimeters",
+    "width" : 3.2937500000000002
+  }
+}
