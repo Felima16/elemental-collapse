@@ -10,10 +10,6 @@ extension NetworkManager: MCSessionDelegate {
         switch state {
         case .notConnected:
             log.info("peer \(peerID) notConnected")
-                // Peer disconnected, start accepting invitaions again
-//            Task { @MainActor in
-//                serviceAdvertiser.startAdvertisingPeer()
-//            }
 
         case .connected:
             log.info("peer \(peerID) connected")
@@ -21,12 +17,6 @@ extension NetworkManager: MCSessionDelegate {
                 connectedPlayers = session.connectedPeers
             }
 
-                // We are paired, stop accepting invitations
-//            Task { @MainActor in
-//                if connectedPeers.count == 4 {
-//                    serviceAdvertiser.stopAdvertisingPeer()
-//                }
-//            }
         default:
             log.info("peer \(peerID) default")
                 // Peer connecting or something else
@@ -40,31 +30,26 @@ extension NetworkManager: MCSessionDelegate {
         didReceive data: Data,
         fromPeer peerID: MCPeerID
     ) {
-//        if let receivedString = String(data: data, encoding: .ascii) {
-//            switch receivedString {
-//            case "hostTableAdded" :
-//
-//                    // [Guest]
-//                hostTableAdded()
-//
-//            case "guestTableAdded" :
-//                    // [Host] The table shared with the guest.
-//                model.tableAddedInGuestDevice = true
-//                delegate?.modelChanged(model: model)
-//                    // Game start
-//                setupMultiPlayersGame()
-//            default:
-//                break
-//            }
-//
-//        }
-//
-//
-//
-//        let decoder = JSONDecoder()
-//        if let receivedState = try?  decoder.decode(GameState.self, from: data) {
-//            didReceiveGameState(state: receivedState)
-//        }
+
+        let decoder = JSONDecoder()
+
+        if let receivedGameInfo = try? decoder.decode(GameInfo.self, from: data) {
+            Task { @MainActor in
+                if receivedGameInfo.GameState == .gameStart {
+                    isPlayingGame = true
+                }
+            }
+
+            Task {
+                await delegate?.didReceiveGameInfo(receivedGameInfo)
+            }
+        }
+
+        if let receivedPlayers = try? decoder.decode([Player].self, from: data) {
+            Task {
+                await delegate?.didReceivePlayers(receivedPlayers)
+            }
+        }
 
     }
     

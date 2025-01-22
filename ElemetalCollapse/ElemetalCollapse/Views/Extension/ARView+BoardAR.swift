@@ -11,8 +11,8 @@ extension ARView {
         config.isCollaborationEnabled = true
 
         // Enables humans and real objects to occlude virtual object
-//        config.frameSemantics.insert(.personSegmentationWithDepth)
-//        arView.environment.sceneUnderstanding.options.insert(.occlusion)
+        config.frameSemantics.insert(.personSegmentationWithDepth)
+        arView.environment.sceneUnderstanding.options.insert(.occlusion)
 
         //Reference images
         guard let referenceImages = ARReferenceImage.referenceImages(inGroupNamed: "AR Resources", bundle: nil) else {
@@ -20,7 +20,7 @@ extension ARView {
         }
         config.detectionImages = referenceImages
 
-        arView.session.run(config, options: [.resetTracking, .removeExistingAnchors])
+        arView.session.run(config, options: [])
 
         return arView
     }

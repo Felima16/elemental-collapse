@@ -39,6 +39,11 @@ def Xform "Root"
             {
                 token outputs:mtlx:surface
                 token outputs:realitykit:vertex
+
+                over "Principled_BSDF"
+                {
+                    float inputs:opacity = 0.9
+                }
             }
         }
     }

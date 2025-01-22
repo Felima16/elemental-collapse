@@ -3,9 +3,35 @@
     "objectMetadataList" : [
       [
         "0EFA7062-CD16-404B-ADEF-20F78E5EFCA7",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "0EFA7062-CD16-404B-ADEF-20F78E5EFCA7",
         "Root",
-        "Transform",
-        "boardTest"
+        "O2"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "0EFA7062-CD16-404B-ADEF-20F78E5EFCA7",
+        "Root",
+        "O2",
+        "_materials"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "0EFA7062-CD16-404B-ADEF-20F78E5EFCA7",
+        "Root",
+        "treeA"
       ],
       {
         "isExpanded" : true,
@@ -23,8 +49,8 @@
       [
         "0EFA7062-CD16-404B-ADEF-20F78E5EFCA7",
         "Root",
-        "AnchorBoard",
-        "treeA"
+        "O2",
+        "pe__a_001"
       ],
       {
         "isExpanded" : true,
@@ -32,7 +58,19 @@
       },
       [
         "0EFA7062-CD16-404B-ADEF-20F78E5EFCA7",
-        "Root"
+        "Root",
+        "Transform",
+        "boardTest"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "0EFA7062-CD16-404B-ADEF-20F78E5EFCA7",
+        "Root",
+        "AnchorBoard",
+        "treeA"
       ],
       {
         "isExpanded" : true,
@@ -42,6 +80,25 @@
   },
   "2985FAA3-27D3-49A4-8E0F-93EF77AE9C74" : {
     "objectMetadataList" : [
+      [
+        "2985FAA3-27D3-49A4-8E0F-93EF77AE9C74",
+        "Root",
+        "spring"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "2985FAA3-27D3-49A4-8E0F-93EF77AE9C74",
+        "Root",
+        "spring",
+        "_materials"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
       [
         "2985FAA3-27D3-49A4-8E0F-93EF77AE9C74",
         "Root",
@@ -63,17 +120,8 @@
       [
         "2985FAA3-27D3-49A4-8E0F-93EF77AE9C74",
         "Root",
-        "Cow",
-        "Materials"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "2985FAA3-27D3-49A4-8E0F-93EF77AE9C74",
-        "Root",
-        "Cow"
+        "spring",
+        "Cube_025"
       ],
       {
         "isExpanded" : true,
@@ -85,8 +133,7 @@
     "objectMetadataList" : [
       [
         "2C92D7A3-69C0-4CDF-9171-D08B5EFA4D70",
-        "Root",
-        "treeA"
+        "Root"
       ],
       {
         "isExpanded" : true,
@@ -94,7 +141,8 @@
       },
       [
         "2C92D7A3-69C0-4CDF-9171-D08B5EFA4D70",
-        "Root"
+        "Root",
+        "treeA"
       ],
       {
         "isExpanded" : true,
@@ -128,6 +176,26 @@
         "AnchorBoard",
         "board",
         "_materials"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "93185EB3-DADB-43E7-80CA-D1B95CF2C611",
+        "Root",
+        "board",
+        "_materials"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "93185EB3-DADB-43E7-80CA-D1B95CF2C611",
+        "Root",
+        "board",
+        "Plane"
       ],
       {
         "isExpanded" : true,

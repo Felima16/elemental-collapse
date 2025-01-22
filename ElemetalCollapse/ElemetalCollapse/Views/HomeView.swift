@@ -1,8 +1,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    @State var showPlayOptions = false
-    @State var showAvailablePlayers = false
+    @State var viewModel = HomeViewModel()
 
     var body: some View {
         createBody()
@@ -17,16 +16,15 @@ struct HomeView: View {
             Image("logo")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(height: 200)
+                .frame(height: 160)
 
 
-            Text("PEGADA DOMINO")
-                .font(.title)
-                .bold()
+            Text("Elemental \n Collapse")
+                .font(.custom("eras-itc", fixedSize: 36))
 
             VStack(spacing: 8) {
                 Button {
-                    showPlayOptions.toggle()
+                    viewModel.showPlayOptions.toggle()
                 } label: {
                     HStack {
                         Image(systemName: "play")
@@ -38,14 +36,14 @@ struct HomeView: View {
                             .font(.custom("Agbalumo-Regular", fixedSize: 24))
                     }
                 }
-                .buttonStyle(InitialButton(isSelected: $showPlayOptions))
+                .buttonStyle(InitialButton(isSelected: $viewModel.showPlayOptions))
 
-                if showPlayOptions {
+                if viewModel.showPlayOptions {
                     createSecondaryButtons()
                 }
 
                 Button {
-                    showPlayOptions.toggle()
+                    viewModel.showPlayOptions.toggle()
                 } label: {
                     Text("Options")
                         .font(.custom("Agbalumo-Regular", fixedSize: 24))
@@ -53,7 +51,7 @@ struct HomeView: View {
                 .buttonStyle(InitialButton(isSelected: .constant(false)))
 
                 Button {
-                    showPlayOptions.toggle()
+                    viewModel.showPlayOptions.toggle()
                 } label: {
                     Text("Credits")
                         .font(.custom("Agbalumo-Regular", fixedSize: 24))
@@ -65,17 +63,39 @@ struct HomeView: View {
 
             Spacer()
         }
-        .animation(.easeInOut, value: showPlayOptions)
-        .fullScreenCover(isPresented: $showAvailablePlayers) {
+        .animation(.easeInOut, value: viewModel.showPlayOptions)
+        .fullScreenCover(isPresented: $viewModel.showAvailablePlayers) {
             AvailablePlayersView(
-                viewModel: .init(gameNetwork: NetworkManager()),
-                showAvailableView: $showAvailablePlayers
+                viewModel: .init(gameNetwork: NetworkManager(name: viewModel.name)),
+                showAvailableView: $viewModel.showAvailablePlayers
             )
+        }
+        .alert(
+            Text(viewModel.alertTitle),
+            isPresented: $viewModel.showAlertEditName
+        ) {
+            Button("Cancel", role: .cancel) {
+                viewModel.showAlertEditName = false
+            }
+            Button("OK") {
+                viewModel.saveName()
+            }
+
+            TextField("name", text: $viewModel.name)
         }
     }
 
     private func createTopBar() -> some View {
         HStack {
+            Button {
+                viewModel.showAlertEditName = true
+            } label: {
+                Text(viewModel.name)
+                    .foregroundStyle(.iconDomix)
+                    .font(.title2)
+                    .padding(.leading, 24)
+            }
+
             Spacer()
 
             Button {
@@ -86,7 +106,7 @@ struct HomeView: View {
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 40)
                     .padding(.trailing, 8)
-                    .foregroundStyle(.whiteDomix)
+                    .foregroundStyle(.iconDomix)
             }
 
             Image(systemName: "person.crop.circle")
@@ -110,13 +130,12 @@ struct HomeView: View {
             .buttonStyle(InitialButton(isSelected: .constant(false)))
 
             Button {
-                showAvailablePlayers = true
+                viewModel.showAvailablePlayers = true
             } label: {
                 Text("Connect")
                     .font(.custom("Agbalumo-Regular", fixedSize: 16))
             }
             .buttonStyle(InitialButton(isSelected: .constant(false)))
-//            .disabled(gameManager.matchAvailable)
         }
         .padding(.horizontal, 40)
     }

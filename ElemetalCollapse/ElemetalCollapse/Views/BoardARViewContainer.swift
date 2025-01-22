@@ -11,13 +11,12 @@ struct BoardARViewContainer: UIViewRepresentable {
     var updateObserver: CancellableWrapper = CancellableWrapper()
 
     func makeUIView(context: Context) -> ARView {
-
-        let arView = ARView.makeBoradARView(frame: .zero)
-        updateObserver.cancel = arView.scene.subscribe(to: SceneEvents.Update.self, handleUpdateState(_:))
-        anchorObserver.cancel = arView.scene.subscribe(to: SceneEvents.AnchoredStateChanged.self, handleAnchorState(_:))
+        updateObserver.cancel = viewModel.arView.scene.subscribe(to: SceneEvents.Update.self, handleUpdateState(_:))
+        anchorObserver.cancel = viewModel.arView.scene.subscribe(to: SceneEvents.AnchoredStateChanged.self, handleAnchorState(_:))
+        viewModel.arView.session.delegate = viewModel
 
         do {
-            arView.scene.synchronizationService = try viewModel.gameNetwork.startSynchronizationService()
+            viewModel.arView.scene.synchronizationService = try viewModel.gameNetwork.startSynchronizationService()
         } catch {
             print("Error startSynchronizationService for scene: \(error)")
         }
@@ -25,21 +24,24 @@ struct BoardARViewContainer: UIViewRepresentable {
         Task {
             do {
                 let board = try await viewModel.prepareBoard()
-                let boardAnchor = AnchorEntity(.image(group: "AR Resources", name: "tree"), trackingMode: .predicted)
+                let boardAnchor = AnchorEntity(.plane(.horizontal, classification: .table, minimumBounds: SIMD2<Float>(0.2, 0.2)))
                 boardAnchor.name = "boardAnchor"
                 boardAnchor.addChild(board)
-                arView.scene.addAnchor(boardAnchor)
+                viewModel.arView.scene.addAnchor(boardAnchor)
+                viewModel.board = boardAnchor
+
             } catch {
                 print("Error loading content: \(error)")
             }
         }
 
-        return arView
+        let arViewTap = UITapGestureRecognizer(target: viewModel, action: #selector(viewModel.selected(recognizer:)))
+        viewModel.arView.addGestureRecognizer(arViewTap)
+
+        return viewModel.arView
     }
 
-    func updateUIView(_ uiView: ARView, context: Context) {
-
-    }
+    func updateUIView(_ uiView: ARView, context: Context) { }
 }
 
 class CancellableWrapper {
